@@ -1,84 +1,77 @@
 package colortheascii
 
-func ColorConcatenator(Indx, A, B, C, D, E, F, G, H []int, color string) (string, string, string, string, string, string, string, string) {
+func Concatenator(indx int, A, B, C, D, E, F, G, H []int, color, letters string) (string, string, string, string, string, string, string, string) {
 	var ab, bc, cd, de, ef, fg, gh, hi string
-	for _, indx := range Indx {
-		for i, a := range A {
-			if i == indx {
-				ab += SecondaryMap(A[indx], color)
-			} else {
-				ab += Maps(a)
+	for i := range A {
+		if i == indx {
+			for x := i; x <= (len(letters)+i)-1; x++ {
+				ab += string(SecondaryMap(A[x], color))
 			}
+		} else {
+			ab += Maps(A[i])
 		}
 	}
-
-	for _, indx := range Indx {
-		for i, b := range B {
-			if i == indx {
-				bc += SecondaryMap(B[indx], color)
-			} else {
-				bc += Maps(b)
+	for i := range B {
+		if i == indx {
+			for x := i; x <= (len(letters)+i)-1; x++ {
+				bc += string(SecondaryMap(B[x], color))
 			}
+		} else {
+			bc += Maps(B[i])
 		}
 	}
-
-	for _, indx := range Indx {
-		for i, c := range C {
-			if i == indx {
-				cd += SecondaryMap(c, color)
-			} else {
-				cd += Maps(c)
+	for i := range C {
+		if i == indx {
+			for x := i; x <= (len(letters)+i)-1; x++ {
+				cd += string(SecondaryMap(C[x], color))
 			}
+		} else {
+			cd += Maps(C[i])
 		}
 	}
-
-	for _, indx := range Indx {
-		for i, d := range D {
-			if i == indx {
-				de += SecondaryMap(d, color)
-			} else {
-				de += Maps(d)
+	for i := range D {
+		if i == indx {
+			for x := i; x <= (len(letters)+i)-1; x++ {
+				de += string(SecondaryMap(D[x], color))
 			}
+		} else {
+			de += Maps(D[i])
 		}
 	}
-
-	for _, indx := range Indx {
-		for i, e := range E {
-			if i == indx {
-				ef += SecondaryMap(E[indx], color)
-			} else {
-				ef += Maps(e)
+	for i := range E {
+		if i == indx {
+			for x := i; x <= (len(letters)+i)-1; x++ {
+				ef += string(SecondaryMap(E[x], color))
 			}
+		} else {
+			ef += Maps(E[i])
 		}
 	}
-
-	for _, indx := range Indx {
-		for i, f := range F {
-			if i == indx {
-				fg += SecondaryMap(F[indx], color)
-			} else {
-				fg += Maps(f)
+	for i := range F {
+		if i == indx {
+			for x := i; x <= (len(letters)+i)-1; x++ {
+				fg += string(SecondaryMap(F[x], color))
 			}
+		} else {
+			fg += Maps(F[i])
 		}
 	}
-
-	for _, indx := range Indx {
-		for i, g := range G {
-			if i == indx {
-				gh += SecondaryMap(G[indx], color)
-			} else {
-				gh += Maps(g)
+	for i := range G {
+		if i == indx {
+			for x := i; x <= (len(letters)+i)-1; x++ {
+				gh += string(SecondaryMap(G[x], color))
 			}
+		} else {
+			gh += Maps(G[i])
 		}
 	}
-
-	for _, indx := range Indx {
-		for i, h := range H {
-			if i == indx {
-				hi += SecondaryMap(H[indx], color)
-			} else {
-				hi += Maps(h)
+	for i := range H {
+		if i == indx {
+			for x := i; x <= (len(letters)+i)-1; x++ {
+				hi += string(SecondaryMap(H[x], color))
 			}
+		} else {
+			hi += Maps(H[i])
 		}
 	}
 	return " " + ab + "\n", bc + "\n", cd + "\n", de + "\n", ef + "\n", fg + "\n", gh + "\n", hi
