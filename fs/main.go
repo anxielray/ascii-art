@@ -11,7 +11,7 @@ import (
 func main() {
 	arguments := len(os.Args)
 	if arguments < 2 || len(os.Args) > 3 {
-		fmt.Println("Wrong passing of arguments")
+		fmt.Println("Usage: go run . [STRING] [BANNER]\n\nEx: go run . something standard")
 		return
 	} else if arguments == 2 {
 		if os.Args[1] == "" {
