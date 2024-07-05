@@ -7,8 +7,13 @@ import (
 )
 
 func Ascii_Output(fileFlag, argument, bannerfile string) {
-	trim := strings.TrimLeft(fileFlag, "--output=")
-	newFile := strings.TrimRight(trim, ".txt")
+	var newFile, trim string
+	trim = fileFlag[9:]
+	if strings.HasSuffix(trim, ".txt") {
+		newFile = trim[:len(trim)-4]
+	} else {
+		newFile = trim
+	}
 	theFile := fmt.Sprintf("%s.txt", newFile)
 	file, err := os.Create(theFile)
 	if err != nil {
