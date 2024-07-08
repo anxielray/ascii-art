@@ -23,7 +23,7 @@ func main() {
 		letters = arguments[0]
 		text = strings.Join(arguments[1:], "")
 		var a, b, c, d, e, f, g, h []int = co.Collector(text)
-		fmt.Println(co.ColorConcatenator(co.IndexTracker(letters, text), a, b, c, d, e, f, g, h, color))
+		fmt.Println(co.Concatenator(co.IndexTracker(letters, text), a, b, c, d, e, f, g, h, color, letters))
 	} else if len(arguments) == 1 {
 		text = strings.Join(arguments, "")
 		lines := strings.Split(text, "\\n")
