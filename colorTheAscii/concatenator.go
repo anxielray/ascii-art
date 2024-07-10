@@ -2,72 +2,80 @@ package colortheascii
 
 func Concatenator(Index, A, B, C, D, E, F, G, H []int, color, letters string) (string, string, string, string, string, string, string, string) {
 	var ab, bc, cd, de, ef, fg, gh, hi string
+	indices := addLetterLen(Index, letters)
 	for i, a := range A {
-		if !(ContainIndex(Index, i, letters)) {
-			ab += Maps(a)
+		if ContainIndex(indices, i) {
+			ab += ColorText(color, Maps(A[i]))
 		} else {
-			ab += ColorText(color, Maps(a))
+			ab += Maps(a)
 		}
 	}
 	for i, b := range B {
-		if !(ContainIndex(Index, i, letters)) {
-			bc += Maps(b)
+		if ContainIndex(indices, i) {
+			bc += ColorText(color, Maps(B[i]))
 		} else {
-			bc += ColorText(color, Maps(b))
+			bc += Maps(b)
 		}
 	}
 	for i, c := range C {
-		if !(ContainIndex(Index, i, letters)) {
-			cd += Maps(c)
+		if ContainIndex(indices, i) {
+			cd += ColorText(color, Maps(C[i]))
 		} else {
-			cd += ColorText(color, Maps(c))
+			cd += Maps(c)
 		}
 	}
 	for i, d := range D {
-		if !(ContainIndex(Index, i, letters)) {
-			de += Maps(d)
+		if ContainIndex(indices, i) {
+			de += ColorText(color, Maps(D[i]))
 		} else {
-			de += ColorText(color, Maps(d))
+			de += Maps(d)
 		}
 	}
 	for i, e := range E {
-		if !(ContainIndex(Index, i, letters)) {
-			ef += Maps(e)
+		if ContainIndex(indices, i) {
+			ef += ColorText(color, Maps(E[i]))
 		} else {
-			ef += ColorText(color, Maps(e))
+			ef += Maps(e)
 		}
 	}
 	for i, f := range F {
-		if !(ContainIndex(Index, i, letters)) {
-			fg += Maps(f)
+		if ContainIndex(indices, i) {
+			fg += ColorText(color, Maps(F[i]))
 		} else {
-			fg += ColorText(color, Maps(f))
+			fg += Maps(f)
 		}
 	}
 	for i, g := range G {
-		if !(ContainIndex(Index, i, letters)) {
-			gh += Maps(g)
+		if ContainIndex(indices, i) {
+			gh += ColorText(color, Maps(G[i]))
 		} else {
-			gh += ColorText(color, Maps(g))
+			gh += Maps(g)
 		}
 	}
 	for i, h := range H {
-		if !(ContainIndex(Index, i, letters)) {
-			hi += Maps(h)
+		if ContainIndex(indices, i) {
+			hi += ColorText(color, Maps(H[i]))
 		} else {
-			hi += ColorText(color, Maps(h))
+			hi += Maps(h)
 		}
 	}
 	return " " + ab + "\n", bc + "\n", cd + "\n", de + "\n", ef + "\n", fg + "\n", gh + "\n", hi
 }
 
-func ContainIndex(a []int, num int, letters string) bool {
+func ContainIndex(a []int, num int) bool {
 	for _, nums := range a {
-		for x := nums; x < len(letters); x++ {
-			if x == num {
-				return true
-			}
+		if nums == num {
+			return true
 		}
 	}
 	return false
+}
+
+func addLetterLen(a []int, letters string) (added []int) {
+	for _, nums := range a {
+		for x := 0; x < len(letters); x++ {
+			added = append(added, nums+x)
+		}
+	}
+	return
 }
