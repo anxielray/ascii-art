@@ -1,18 +1,13 @@
 package colortheascii
 
-import (
-	"strings"
-)
-
-func IndexTracker(letters, text string) (Index []int) {
-	var wanted int
-	if strings.Contains(text, letters) {
-		wanted = strings.Index(text, letters)
-		Index = append(Index, wanted)
-		Index = append(Index, IndexTracker(letters, text[(wanted+1):])...)
+func IndexTracker(substring string, str string) (result []int) {
+	result = make([]int, 0)
+	for i := 0; i <= len(str); i++ {
+		for j := i; j <= len(str); j++ {
+			if str[i:j] == substring {
+				result = append(result, i)
+			}
+		}
 	}
-
 	return
 }
-
-// text = strings.ReplaceAll(text, letters, fmt.Sprintf("\033[1;%dm%s\033[0m", GetColor(color), letters))
