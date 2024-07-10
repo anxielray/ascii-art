@@ -1,5 +1,10 @@
 package colortheascii
 
+/*
+The Collector function will take the string passed as argument
+to be printed in ASCII format, and calculate the line numbers
+of each character. Each line (of the eight lines) worked on at a time.
+*/
 func Collector(input string) (a, b, c, d, e, f, g, h []int) {
 	for _, char := range input {
 		a = append(a, FindHeadLine(char))
