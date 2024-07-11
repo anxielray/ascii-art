@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
 	"strings"
 
 	co "color/colorTheAscii"
@@ -16,6 +17,10 @@ var (
 )
 
 func main() {
+	if os.Args[1] == "\\n" {
+		fmt.Println()
+		return
+	}
 	flag.Parse()
 	color := *colorFlag
 	arguments = flag.Args()
