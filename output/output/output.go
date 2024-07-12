@@ -9,7 +9,7 @@ import (
 func Ascii_Output(fileFlag, argument, bannerfile string) {
 	var newFile, trim string
 	trim = fileFlag[9:]
-	if strings.HasSuffix(trim, ".txt") {
+	if strings.Contains(trim, ".txt") {
 		newFile = trim[:len(trim)-4]
 	} else {
 		newFile = trim
@@ -57,7 +57,7 @@ func WriteToFile(createdFile *os.File, line1, line2, line3, line4, line5, line6,
 }
 
 func LessArguments(fileFlag, argument string) {
-	file, err := os.Create(strings.Trim(fileFlag, "--output="))
+	file, err := os.Create(fileFlag[9:])
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(0)
