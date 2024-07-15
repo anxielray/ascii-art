@@ -7,9 +7,11 @@ import (
 )
 
 func Maps(n int) string {
-	file, err := os.Open("standard.txt")
+	banner := Validate_banner()
+	file, err := os.Open(fmt.Sprintf("%s.txt", banner))
 	if err != nil {
 		fmt.Println(err)
+		os.Exit(0)
 	}
 	scanner := bufio.NewScanner(file)
 	var count int

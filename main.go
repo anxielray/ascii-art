@@ -17,40 +17,31 @@ var (
 )
 
 func main() {
-	if len(os.Args) == 1 || len(os.Args) > 4 {
+	if len(os.Args) == 1 || len(os.Args) > 5 {
 		fmt.Println(`Usage: go run . [OPTION] [STRING]
 			
 EX: go run . --color=<color> <substring to be colored> "something"`)
 		os.Exit(0)
-	}else if len(os.Args) == 2 && os.Args[1] == "\\n" {
+	} else if len(os.Args) == 2 && os.Args[1] == "\\n" {
 		fmt.Println()
+		os.Exit(0)
+	} else if len(os.Args) == 2 && os.Args[1] == "" {
 		os.Exit(0)
 	}
 	flag.Parse()
 	co.ValidFlag()
 	color := *colorFlag
 	arguments = flag.Args()
-	if len(arguments) == 2 {
-		letters = arguments[0]
-		text = strings.Join(arguments[1:], "")
-		if strings.Contains(text, "\\t") {
-			text = strings.ReplaceAll(text, "\\t", "    ")
-		}
-		var a, b, c, d, e, f, g, h []int = co.Collector(text)
-		fmt.Println(co.Concatenator(co.IndexTracker(letters, text), a, b, c, d, e, f, g, h, color, letters))
-	} else if len(arguments) == 1 {
+	if len(os.Args) == 2 && flag.NFlag() < 1 {
+		co.Ascii_art()
+	} else if len(os.Args) == 3 && flag.NFlag() < 1 {
+		co.Ascii_fs()
+	} else if len(arguments) == 2 {
+		co.Ascii_Color()
+	} else if len(arguments) == 1 && flag.NFlag() == 1 {
 		text = strings.Join(arguments, "")
-		if strings.Contains(text, "\\t") {
-			text = strings.ReplaceAll(text, "\\t", "    ")
-		}
-		lines := strings.Split(text, "\\n")
-		for _, line := range lines {
-			if line != "" {
-				var a, b, c, d, e, f, g, h []int = co.Collector(text)
-				fmt.Println(co.PlainConcatenator(a, b, c, d, e, f, g, h, color))
-			} else {
-				fmt.Println()
-			}
-		}
+		co.Ascii_Color_less_Arguments(text, color)
+	} else if len(arguments) == 3 {
+		co.Full_Ascii_color(color)
 	}
 }
