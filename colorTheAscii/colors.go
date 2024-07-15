@@ -49,7 +49,3 @@ func GetColor(color string) (code int) {
 		return 0
 	}
 }
-
-/*
-
- */
