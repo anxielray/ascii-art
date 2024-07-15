@@ -22,6 +22,9 @@ func main() {
 			
 EX: go run . --color=<color> <substring to be colored> "something"`)
 		os.Exit(0)
+	}else if len(os.Args) == 2 && os.Args[1] == "\\n" {
+		fmt.Println()
+		os.Exit(0)
 	}
 	flag.Parse()
 	co.ValidFlag()
