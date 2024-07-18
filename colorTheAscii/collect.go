@@ -1,5 +1,10 @@
 package colortheascii
 
+/*
+The functoin connects the string input with
+their mathematical calculators that finds
+thier line numbers in the banner filefile
+*/
 func Collector(input string) (a, b, c, d, e, f, g, h []int) {
 	for _, char := range input {
 		a = append(a, FindHeadLine(char))

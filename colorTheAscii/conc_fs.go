@@ -5,30 +5,30 @@ The function takes  slices of integers and calls the Map(int)string function
 which opens the banner file, and concatenates the lines together to form a
 single line of the ASCII art.
 */
-func Art_Concatenator(a, b, c, d, e, f, g, h []int) (str1, str2, str3, str4, str5, str6, str7, str8 string) {
+func Fs_Concatenator(a, b, c, d, e, f, g, h []int, banner string) (str1, str2, str3, str4, str5, str6, str7, str8 string) {
 	for _, num := range a {
-		str1 += Maps(num)
+		str1 += SecondaryMap(num, banner)
 	}
 	for _, num := range b {
-		str2 += Maps(num)
+		str2 += SecondaryMap(num, banner)
 	}
 	for _, num := range c {
-		str3 += Maps(num)
+		str3 += SecondaryMap(num, banner)
 	}
 	for _, num := range d {
-		str4 += Maps(num)
+		str4 += SecondaryMap(num, banner)
 	}
 	for _, num := range e {
-		str5 += Maps(num)
+		str5 += SecondaryMap(num, banner)
 	}
 	for _, num := range f {
-		str6 += Maps(num)
+		str6 += SecondaryMap(num, banner)
 	}
 	for _, num := range g {
-		str7 += Maps(num)
+		str7 += SecondaryMap(num, banner)
 	}
 	for _, num := range h {
-		str8 += Maps(num)
+		str8 += SecondaryMap(num, banner)
 	}
 	return " " + str1 + "\n", str2 + "\n", str3 + "\n", str4 + "\n", str5 + "\n", str6 + "\n", str7 + "\n", str8
 }
