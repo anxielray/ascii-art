@@ -1,14 +1,15 @@
 package colortheascii
 
 import (
+	"flag"
 	"fmt"
 	"os"
 	"strings"
 )
 
 func Ascii_Color() {
-	text := os.Args[3]
-	letters := os.Args[2]
+	text := flag.Args()[1]
+	letters := flag.Args()[0]
 	color := strings.TrimPrefix(os.Args[1], "--color=")
 	if strings.Contains(text, "\\t") {
 		text = strings.ReplaceAll(text, "\\t", "    ")
@@ -24,6 +25,7 @@ func Ascii_Color() {
 	}
 }
 
+//Deals with the scenario when less number of arguments are passed. Without the substring
 func Ascii_Color_less_Arguments(text, color string) {
 	if strings.Contains(text, "\\t") {
 		text = strings.ReplaceAll(text, "\\t", "    ")

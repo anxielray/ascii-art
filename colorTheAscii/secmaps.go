@@ -6,8 +6,8 @@ import (
 	"os"
 )
 
-func SecondaryMap(n int, color string) string {
-	file, err := os.Open("standard.txt")
+func SecondaryMap(n int, fileName string) string {
+	file, err := os.Open(fmt.Sprintf("%s.txt", fileName))
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -20,7 +20,7 @@ func SecondaryMap(n int, color string) string {
 		ascMap := make(map[int]string)
 		if count == n {
 			for _, ch := range line {
-				str += ColorText(color, string(ch))
+				str += string(ch)
 			}
 		}
 		ascMap[n] = str

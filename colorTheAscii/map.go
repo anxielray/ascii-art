@@ -7,8 +7,7 @@ import (
 )
 
 func Maps(n int) string {
-	banner := Validate_banner()
-	file, err := os.Open(fmt.Sprintf("%s.txt", banner))
+	file, err := os.Open("standard.txt")
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(0)
