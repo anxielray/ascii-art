@@ -1,0 +1,20 @@
+STARTING WITH ASCII-ART-REVERSE.
+
+Understanding The Question.
+
+- It's all about reversing the process other than the letters.
+
+Requirements
+- Create a textual file with a graphic representation of a 
+string given as an argument. The argument will be 
+`--reverse=<fileName>`The program should then pront it out as a plain 
+text. 
+
+- The flag passing must be in the very exact format as mentioned. 
+Else, the error message to be given is:
+
+`Usage:  go run . [OPTION]
+
+ Ex: go run . --reverse=<fileName>
+
+- Other ascii art projects implemented should be incooperated...
